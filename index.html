@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>ML-dHPa Algoritmo Inteligente predecir Colapso en Urgencias.</title>
+
+		<meta name="description" content="MAchine Learning dHPa">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/league.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>ML-dHPa</h1>
+					<h3>Machine Learning - densidad Horaria Pacientes Acumulados</h3>
+                    <p>
+                    </p>
+					<p>
+						<small>Creado por <a href="https://www.linkedin.com/in/imsoriano/">Ignacio Martinez Soriano</a> / <a href="http://twitter.com/coloratto57">@coloratto67</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Definición del problema.</h2>
+                    <br>
+					<p>
+				     En las Urgencias Hospitalarias, la saturacion de pacientes puede producir el colapso del servicio.
+					</p>
+                    <br>
+                    <p>Pretendemos desarrollar un algoritmo de aprendizaje supervisado, basado en clasificacion. Para poder predecir el momento que pueda ocurrir una situación de colapso en Urgencias.</p>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+                        <h1>Machine Learning</h1>
+						<h2>Aprendizaje Supervisado</h2>
+                        <h3>Clasificación</h3>
+						<p>Estos algoritmos, permiten predecir el valor de una variable <strong>"label"</strong>, teniendo en cuenta un conjunto de características <strong>"features"</strong>.</p>
+						<br>
+
+					</section>
+					<section>
+						<h2>Elección de caracteristicas iniciales:</h2>
+                        <ol>
+                            <li>Indicador <em>dHPa</em>.</li>
+                            <li>Entrada pacientes a la hora.</li>
+                            <li>Altas de Pacientes a la Hora.</li>
+                            <li>Recursos ocupados en Urgencias. Camas Observacion.</li>
+                            <li>Facultativos trabajando a la Hora.</li>
+                            <li>Camas libres de Hospitalización.</li>
+                        </ol>				
+					</section>
+
+				</section>
+
+				<section>
+                    <section>
+					<h2>AZure-ML</h2>
+                    <h3>Pasos para la creación del Modelo.</h3>
+					<br>
+                     <ol>
+                         <li>Eleccion del Algoritmo de entrenamiento , donde se identifican las reglas de decisión.</li>
+                         <li>Puesta en Producción mediante WebServicies</li>
+                    </ol>
+                    </section>    
+                    <section>
+                    <h3>Proceso:</h3>
+                    <br>    
+				    <ol>
+                        <li><p class="fragment">Crear el Data Set.</p></li>
+                        <li><p class="fragment">Preparar dos grupos del Data-Set. Uno para Entrenamiento 80% y otro para Evaluación 20%</p></li>
+                        <li><p class="fragment">Elegir el Algoritmo de Clasificación.</p></li>
+                        <li><p class="fragment">Elegir módulo de Entrenamiento.</p></li>
+                        <li><p class="fragment">Módulo de evaluación.</p></li>
+                    </ol>
+				    </section>
+                    
+                </section>
+
+
+				<section>
+					<h2>Producción del Modelo Generado</h2>
+					<ol>
+						<li>Alimentacion diaria de datos, franja horaria.</li>
+						<li>Aplicar Modelo de Producción</li>
+						<li>Generar Alerta. En caso de <em>Colapso</em></li>
+                        <li>Observar los valores de las Características</li>
+                        <li>Según valores obtenidos que actuaciones debemos realizar para solucionar el colapso.</li>
+					</ol>
+				</section>
+
+				<section>
+					<h1>Conclusiones</h1>
+                    <h2>Además de crear un algoritmo predictivo hay que desarrollar un algoritmo prescriptivo</h2>
+					<p>
+
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
